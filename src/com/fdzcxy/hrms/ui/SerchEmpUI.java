@@ -29,34 +29,9 @@ public class SerchEmpUI implements BaseUI {
 	 */
 	@Override
 	public void run() {
-	
-		String str = null;
-		EmployeeDao em = new EmployeeDaoImpl();
-		List<Employee> list = EmployeeDaoImpl.lists;
-		Boolean isFind = false;
 		
-		while (true) {
-			System.out.print("Enter keyword: ");
-			try {
-				str = SysUtils.getInput("No keyword entered ¨C try again", false);
-			} catch (BlankInputException e) {
-				System.out.println(e.getMessage());
-				continue;
-			}
-			for (Employee e : list) {
-				if (e.serch(str)) {
-					e.out();
-					isFind = true;
-				}
-			}
-			break;
-		}
-		if (isFind) {
-			SysUtils.pause("\nPress Enter to continue...");
-		} else {
-			System.out.println("Keyword ¨C " + str + " - not found");
-			SysUtils.pause("\nPress Enter to continue...");
-		}
+		EmployeeDao em = new EmployeeDaoImpl();
+		em.select();
 	}
 		
 

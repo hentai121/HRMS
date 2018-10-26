@@ -20,4 +20,5 @@ public interface EmployeeDao {
 	void writeToFile();
 	void add();
 	void delete();
+	void select();
 }
